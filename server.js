@@ -1,13 +1,22 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+var path = require('path');
+const ejs = require('ejs');
+
+
+
+var app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 const fight = require('./controllers/fight');
 
 const port = process.env.PORT || 3000;
 
-const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
